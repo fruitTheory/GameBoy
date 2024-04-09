@@ -2,9 +2,10 @@
 
 #include <cstdint>
 
-void do_me();
+
 
 namespace cpu {
+
 
   struct flag
   {
@@ -12,7 +13,10 @@ namespace cpu {
     static bool Subtract;
     static bool Half_Carry;
     static bool Carry;
+
   };
+
+  void do_me(cpu::flag input);
 
   class registers {
 

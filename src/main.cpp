@@ -10,7 +10,8 @@ int main(){
   cpu::registers registers;
   registers.PC = 100;
 
-  do_me();
+  cpu::flag flag;
+  cpu::do_me(flag);
   cpu::flag::Zero = true;
 
   printf("variable: %i\n", registers.PC);

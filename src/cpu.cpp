@@ -3,6 +3,8 @@
 #include <iostream>
 
 
+bool cpu::flag::Carry = false;
 bool cpu::flag::Zero = false;
 
-void do_me(){ std::cout << cpu::flag::Zero << endline;}
+void cpu::do_me(cpu::flag input){ 
+  std::cout << input.Carry << endline;}
