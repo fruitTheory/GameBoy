@@ -10,11 +10,11 @@ int main(){
   cpu::registers registers;
   registers.PC = 100;
 
-  //cpu::flag::Zero f_zero;
   do_me();
+  cpu::flag::Zero = true;
 
   printf("variable: %i\n", registers.PC);
-  // printf("true?: %i\n", f_zero);
+  printf("true?: %i\n", cpu::flag::Zero);
   
   return EXIT_SUCCESS;
 }
