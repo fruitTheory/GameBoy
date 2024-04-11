@@ -1,7 +1,6 @@
 #include "cpu.hpp"
-#include <cstdint>
 #include <iostream>
-#include <stdint.h>
+#include <cstdint>
 
 void func(){
   cpu::registers Register;
@@ -14,4 +13,5 @@ void func(){
 
   std::cout << "val: " << val << std::endl;
   std::cout << "bool: " << status << std::endl;
+  
 }

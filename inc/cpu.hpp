@@ -16,7 +16,6 @@ namespace cpu {
     inline static bool Carry;
 
   public:
-
     int get_flag_status(){
       return Zero;
     };
@@ -47,15 +46,13 @@ namespace cpu {
     inline static uint16_t SP;
 
   public:
-
     int get_value(){
       return A;
     }
     void set_value(int16_t value){
-      cpu::registers::A = value;
+      A = value;
       
     };
-    
   };
 
   // Program counter
