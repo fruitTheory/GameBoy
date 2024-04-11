@@ -7,15 +7,7 @@ int main(){
   
   std::cout << "Hello C++" << std::endl;
 
-  cpu::registers registers;
-  registers.PC = 100;
-
-  cpu::flag flag;
-  cpu::do_me(flag);
-  cpu::flag::Zero = true;
-
-  printf("variable: %i\n", registers.PC);
-  printf("true?: %i\n", cpu::flag::Zero);
+  func();
   
   return EXIT_SUCCESS;
 }

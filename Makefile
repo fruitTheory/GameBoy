@@ -2,7 +2,7 @@ CC = g++
 BIN = ./bin/
 SRC = ./src/
 INC = ./inc/
-FLAG = -Wall -Wextra -std=c17
+FLAG = -Wall -Wextra -std=c++17
 BUILD = ./build/
 OBJ = cpu.o
 

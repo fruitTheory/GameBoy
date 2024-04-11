@@ -2,46 +2,70 @@
 
 #include <cstdint>
 
+void func();
 
-
+// Single core cpu
 namespace cpu {
 
+  // Flags
+  class flag {
+  private:
+    inline static bool Zero;
+    inline static bool Subtract;
+    inline static bool Half_Carry;
+    inline static bool Carry;
 
-  struct flag
-  {
-    static bool Zero;
-    static bool Subtract;
-    static bool Half_Carry;
-    static bool Carry;
+  public:
+
+    int get_flag_status(){
+      return Zero;
+    };
+    void set_flag(bool status){
+      Zero = status;
+    };
 
   };
 
-  void do_me(cpu::flag input);
+  // Decode instructions  
+  class control {
 
+  };
+
+  // Holds state of cpu
   class registers {
 
-  public:
-    uint8_t A;
-    uint8_t B;
-    uint8_t C;
-    uint8_t D;
-    uint8_t E;
-    uint8_t F;
-    uint8_t H;
-    uint8_t L;
-    uint16_t PC;
-    uint16_t SP;
+  private:
+    inline static uint8_t A;
+    inline static uint8_t B;
+    inline static uint8_t C;
+    inline static uint8_t D;
+    inline static uint8_t E;
+    inline static uint8_t F;
+    inline static uint8_t H;
+    inline static uint8_t L;
+    inline static uint16_t PC;
+    inline static uint16_t SP;
 
-    void get_reg();
+  public:
+
+    int get_value(){
+      return A;
+    }
+    void set_value(int16_t value){
+      cpu::registers::A = value;
+      
+    };
     
   };
 
+  // Program counter
   class PC
   {
   public:
-    int get();
+    void get();
   };
 
+  // Stack
   class stack
   {
   public:

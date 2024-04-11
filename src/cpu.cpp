@@ -1,10 +1,17 @@
 #include "cpu.hpp"
-#include "config.hpp"
+#include <cstdint>
 #include <iostream>
+#include <stdint.h>
 
+void func(){
+  cpu::registers Register;
+  Register.set_value(60);
+  int val = Register.get_value();
 
-bool cpu::flag::Carry = false;
-bool cpu::flag::Zero = false;
+  cpu::flag Flag;
+  Flag.set_flag(true);
+  int status = Flag.get_flag_status();
 
-void cpu::do_me(cpu::flag input){ 
-  std::cout << input.Carry << endline;}
+  std::cout << "val: " << val << std::endl;
+  std::cout << "bool: " << status << std::endl;
+}
