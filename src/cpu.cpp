@@ -1,17 +1,16 @@
 #include "cpu.hpp"
 #include <iostream>
-#include <cstdint>
 
-void func(){
-  cpu::registers Register;
-  Register.set_value(60);
-  int val = Register.get_value();
 
-  cpu::flag Flag;
-  Flag.set_flag(true);
-  int status = Flag.get_flag_status();
+void temp_func(){ puts(" "); }
 
-  std::cout << "val: " << val << std::endl;
-  std::cout << "bool: " << status << std::endl;
-  
+int cpu::registers::combine_registers(int high_bit, int low_bit){
+  std::cout << "Hbit: " << high_bit << std::endl;
+  high_bit <<= 8;
+  int combined = high_bit + low_bit;
+  std::cout << "Hbit: " << high_bit << std::endl;
+  std::cout << "Comb: " << combined << std::endl;
+
+  return combined;
 }
+

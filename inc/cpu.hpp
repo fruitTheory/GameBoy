@@ -1,29 +1,26 @@
 #pragma once
 
-#include <cstdint>
-
-void func();
+void temp_func();
 
 // Single core cpu
 namespace cpu {
 
-  // Flags
-  class flag {
-  private:
-    inline static bool Zero;
-    inline static bool Subtract;
-    inline static bool Half_Carry;
-    inline static bool Carry;
+  // Flags - note these would be lower 8 bits of A(F) register
+  struct flag {
 
-  public:
-    int get_flag_status(){
-      return Zero;
-    };
-    void set_flag(bool status){
-      Zero = status;
-    };
+    // Set if result is zero
+    inline static bool Zero; 
+    // Set if a subtraction was performed in the last math instruction
+    inline static bool Subtract;
+    // Set if a carry occurred from lower nibble in the last math operation.
+    inline static bool Half_Carry;
+    // Set when 8/16 bit addition higher than $FF/$FFFF
+    // when subtraction is lower than 0  or 
+    // rotate/shift operation shifts out a “1” bit
+    inline static bool Carry; 
 
   };
+  
 
   // Decode instructions  
   class control {
@@ -31,34 +28,28 @@ namespace cpu {
   };
 
   // Holds state of cpu
-  class registers {
+  struct registers {
 
-  private:
-    inline static uint8_t A;
-    inline static uint8_t B;
-    inline static uint8_t C;
-    inline static uint8_t D;
-    inline static uint8_t E;
-    inline static uint8_t F;
-    inline static uint8_t H;
-    inline static uint8_t L;
-    inline static uint16_t PC;
-    inline static uint16_t SP;
+    inline static int A;
+    inline static int B;
+    inline static int C;
+    inline static int D;
+    inline static int E;
+    inline static int F;
+    inline static int H;
+    inline static int L;
+    inline static int PC;
+    inline static int SP;
 
-  public:
-    int get_value(){
-      return A;
-    }
-    void set_value(int16_t value){
-      A = value;
-      
-    };
+    int combine_registers(int high_bit, int low_bit);
+
   };
 
   // Program counter
-  class PC
-  {
-  public:
+  struct PC {
+
+    // Starts at 0x100, executes instruction then follows programmer
+    PC(){};
     void get();
   };
 

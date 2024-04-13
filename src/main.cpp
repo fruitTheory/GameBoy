@@ -7,7 +7,11 @@ int main(){
   
   std::cout << "Hello C++" << std::endl;
 
-  func();
+  temp_func();
+  
+  cpu::registers Register;
+
+  Register.combine_registers(0x08, 0x04);
   
   return EXIT_SUCCESS;
 }
