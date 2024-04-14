@@ -11,7 +11,9 @@ int main(){
   
   cpu::registers Register;
 
-  Register.combine_registers(0x08, 0x04);
+  Register.combine_registers(0xFF, 0xFF);
+
+  print_binary(248);
   
   return EXIT_SUCCESS;
 }

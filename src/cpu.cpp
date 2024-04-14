@@ -4,13 +4,7 @@
 
 void temp_func(){ puts(" "); }
 
-int cpu::registers::combine_registers(int high_bit, int low_bit){
-  std::cout << "Hbit: " << high_bit << std::endl;
-  high_bit <<= 8;
-  int combined = high_bit + low_bit;
-  std::cout << "Hbit: " << high_bit << std::endl;
-  std::cout << "Comb: " << combined << std::endl;
-
+int cpu::registers::combine_registers(int high_byte, int low_byte){
+  int combined = (high_byte << 8) + low_byte;
   return combined;
 }
-

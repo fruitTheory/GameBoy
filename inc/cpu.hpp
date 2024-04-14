@@ -41,7 +41,7 @@ namespace cpu {
     inline static int PC;
     inline static int SP;
 
-    int combine_registers(int high_bit, int low_bit);
+    int combine_registers(int high_byte, int low_byte);
 
   };
 
