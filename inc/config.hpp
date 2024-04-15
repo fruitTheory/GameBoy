@@ -8,6 +8,8 @@
 #define ROM_BANK_1_SIZE 16383
 #define ADDRESS_BUS 65535
 
+#define endline std::cout << std::endl 
+
 /*
 
 0000	3FFF	16 KiB ROM bank 00	From cartridge, usually a fixed bank

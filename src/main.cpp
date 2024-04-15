@@ -1,21 +1,27 @@
 #include <cstdlib>
 #include <iostream>
+#include <ostream>
 #include "cpu.hpp"
+#include "utility.hpp"
+#include "cartridge.hpp"
 
 
-int main(){
-  
+
+int main(int argc, char* argv[]){
+
   std::cout << "Hello C++" << std::endl;
 
-  temp_func();
-  
+  Cartridge Cartridge(argv[1]);
+
   cpu::registers Register;
+  int reg = Register.combine_registers(0xFF, 0xFF);
+  std::cout << "reg value: " << reg << std::endl;
+  Utils::print_binary(255);
 
-  Register.combine_registers(0xFF, 0xFF);
-
-  print_binary(248);
+  Utils::print_vector(Cartridge.Rom);
   
   return EXIT_SUCCESS;
+
 }
 
 
