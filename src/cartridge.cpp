@@ -10,7 +10,7 @@
 // Returns a buffer containing characters of input file
 uint8_t* Cartridge::load(std::string file, size_t fsize){
 
-  std::ifstream cartridge(file, std::ifstream::binary);
+  std::ifstream cartridge(file, std::ios::binary);
   uint8_t* buffer;
 
   if(cartridge){
@@ -27,7 +27,7 @@ uint8_t* Cartridge::load(std::string file, size_t fsize){
 // Return the size of an input file
 size_t Cartridge::measure_size(std::string file){
 
-  std::ifstream cartridge(file, std::ios::in | std::fstream::binary);
+  std::ifstream cartridge(file, std::ios::in | std::ios::binary);
 
   cartridge.seekg(0, std::ios::end);
   size_t filesize = static_cast<size_t>(cartridge.tellg());

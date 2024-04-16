@@ -3,18 +3,12 @@
 // Single core cpu
 namespace cpu {
 
-  // Flags - note these would be lower 8 bits of A(F) register
+  // Flags - note these would be lower 8 bits of AF register
   struct flag {
 
-    // Set if result is zero
     inline static bool Zero; 
-    // Set if a subtraction was performed in the last math instruction
     inline static bool Subtract;
-    // Set if a carry occurred from lower nibble in the last math operation.
     inline static bool Half_Carry;
-    // Set when 8/16 bit addition higher than $FF/$FFFF
-    // when subtraction is lower than 0  or 
-    // rotate/shift operation shifts out a “1” bit
     inline static bool Carry; 
 
   };

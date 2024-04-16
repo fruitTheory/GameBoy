@@ -3,7 +3,7 @@
 #include "utility.hpp"
 #include "config.hpp"
 
-// Only 16 bit max
+// print 16 bit max binary
 void Utils::print_binary(int num){
   int byte = 7;
   if(num > 0xFF){byte = 15;}
