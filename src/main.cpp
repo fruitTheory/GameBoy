@@ -12,13 +12,10 @@ int main(int argc, char* argv[]){
   std::cout << "Hello C++" << std::endl;
 
   Cartridge Cartridge(argv[1]);
+  
+  Utils::print_buffer(Cartridge.Rom, Cartridge.Size);
 
-  cpu::registers Register;
-  int reg = Register.combine_registers(0xFF, 0xFF);
-  std::cout << "reg value: " << reg << std::endl;
-  Utils::print_binary(255);
-
-  Utils::print_vector(Cartridge.Rom);
+  std::cout << "Goodbye C++" << std::endl;
   
   return EXIT_SUCCESS;
 

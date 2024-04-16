@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdint>
 #include "utility.hpp"
 #include "config.hpp"
 
@@ -9,5 +10,12 @@ void Utils::print_binary(int num){
   if(num > 0xFFFF){throw std::invalid_argument("16 bit number max");}
   for(int i = byte; i >= 0; i--){
       std::cout << ((num >> i) & 1);
-  } std::cout << std::endl;
+  } endline;
+}
+
+// Print C style array
+void Utils::print_buffer(uint8_t* buffer, size_t size){
+  for(int i = 0; i < size; i++){
+    printf("%02X ", buffer[i]);
+  } endline;
 }

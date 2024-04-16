@@ -23,7 +23,7 @@ cartridge.o: $(SRC)cartridge.cpp $(INC)cartridge.hpp
 	$(CC) -I$(INC) -c $(SRC)cartridge.cpp -o $(BUILD)cartridge.o
 
 run:
-	$(BIN)main ./bin/test.txt
+	$(BIN)main ./bin/tiles.gb
 
 clean:
 	rm $(BUILD)*.o
