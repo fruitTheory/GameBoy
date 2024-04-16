@@ -15,7 +15,7 @@ void Utils::print_binary(int num){
 
 // Print C style array
 void Utils::print_buffer(uint8_t* buffer, size_t size){
-  for(int i = 0; i < size; i++){
+  for(size_t i = 0; i < size; i++){
     printf("%02X ", buffer[i]);
   } endline;
 }
