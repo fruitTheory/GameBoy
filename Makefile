@@ -2,7 +2,7 @@ CC = g++
 BIN = ./bin/
 SRC = ./src/
 INC = ./inc/
-FLAG = -std=c++17 -Wall -Wextra -Wpedantic -Wconversion
+FLAG = -std=c++20 -Wall -Wextra -Wpedantic -Wconversion
 BUILD = ./build/
 
 SOURCES = cartridge.cpp cpu.cpp utility.cpp

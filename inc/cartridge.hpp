@@ -3,28 +3,22 @@
 #include <iostream>
 #include <cstdint>
 
+using std::vector;
+
 class Cartridge{
 
   private:
   
-  size_t measure_size(std::string file);
-  uint8_t* load(std::string file, size_t fsize);
+  vector<uint8_t> load(std::string file);
 
   public:
 
   Cartridge(std::string cartridge){
-    Size = measure_size(cartridge);
+    Rom = load(cartridge);
     std::cout << "Cartridge name: " << cartridge << std::endl;
-    std::cout << "Cartridge size: " << Size << std::endl;
-    Rom = load(cartridge, Size);
+    std::cout << "Cartridge size: " << Rom.size() << std::endl;
   };
-
-  ~Cartridge(){
-    delete[] Rom;
-    Rom = nullptr;
-  }
   
-  uint8_t* Rom;
-  size_t Size;
-
+  vector<uint8_t> Rom;
+  
 };

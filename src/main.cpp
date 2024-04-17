@@ -12,7 +12,7 @@ int main(int argc, char* argv[]){
 
   Cartridge Cartridge(argv[1]);
   
-  Utils::print_buffer(Cartridge.Rom, Cartridge.Size);
+  Utils::print_vector(Cartridge.Rom);
 
   std::cout << "Goodbye C++" << std::endl;
   

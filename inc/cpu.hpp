@@ -10,7 +10,6 @@ namespace cpu {
     inline static bool Subtract;
     inline static bool Half_Carry;
     inline static bool Carry; 
-
   };
   
   // Decode instructions  
