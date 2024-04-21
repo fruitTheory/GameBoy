@@ -5,7 +5,9 @@ INC = ./inc/
 FLAG = -std=c++20 -Wall -Wextra -Wpedantic -Wconversion
 BUILD = ./build/
 
-SOURCES = cartridge.cpp cpu.cpp utility.cpp
+SOURCES = cartridge.cpp cpu.cpp utility.cpp memory.cpp \
+instructions.cpp
+
 OBJECTS = $(SOURCES:%.cpp=$(BUILD)%.o)
 
 all: directories main

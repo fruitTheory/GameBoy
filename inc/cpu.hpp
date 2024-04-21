@@ -1,7 +1,7 @@
 #pragma once
 
 // Single core cpu
-namespace cpu {
+namespace CPU {
 
   // Flags - note these would be lower 8 bits of AF register
   struct flag {
@@ -18,7 +18,7 @@ namespace cpu {
   };
 
   // Holds state of cpu
-  struct registers {
+  struct Register {
 
     inline static int A;
     inline static int B;

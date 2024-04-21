@@ -7,6 +7,7 @@
 #define ROM_BANK_0_SIZE 16383
 #define ROM_BANK_1_SIZE 16383
 #define ADDRESS_BUS 65535
+#define BYTE 0xFF
 
 #define endline std::cout << std::endl 
 
