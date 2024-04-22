@@ -4,12 +4,17 @@
 namespace CPU {
 
   // Flags - note these would be lower 8 bits of AF register
-  struct flag {
+  struct Flag {
 
     inline static bool Zero; 
     inline static bool Subtract;
     inline static bool Half_Carry;
-    inline static bool Carry; 
+    inline static bool Carry;
+
+    enum type { ZERO, SUBTRACT, HALF_CARRY, CARRY };
+    static void Set(Flag::type flag_type, bool value);
+    static bool Get(Flag::type flag_type);
+
   };
   
   // Decode instructions  
@@ -19,7 +24,8 @@ namespace CPU {
 
   // Holds state of cpu
   struct Register {
-
+    
+    // 8-bit
     inline static int A;
     inline static int B;
     inline static int C;
@@ -28,10 +34,18 @@ namespace CPU {
     inline static int F;
     inline static int H;
     inline static int L;
+
+    // 16-bit
+    inline static int AF;
+    inline static int BC;
+    inline static int DE;
+    inline static int HL;
+
+    // 16-bit pointers
     inline static int PC;
     inline static int SP;
 
-    static int combine_registers(int high_byte, int low_byte);
+    static int Combine(int high_byte, int low_byte);
 
   };
 

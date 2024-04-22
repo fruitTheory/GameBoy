@@ -9,6 +9,10 @@
 #define ADDRESS_BUS 65535
 #define BYTE 0xFF
 
+#define PIXELS 256
+#define TILES 32
+#define TILE_PIXELS 8
+
 #define endline std::cout << std::endl 
 
 /*

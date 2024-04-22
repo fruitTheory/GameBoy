@@ -6,7 +6,6 @@
 
 #define byte char
 
-
 using std::vector;
 using std::istreambuf_iterator;
 
