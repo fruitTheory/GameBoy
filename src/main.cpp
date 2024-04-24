@@ -3,9 +3,11 @@
 #include <ostream>
 #include <cstdint>
 #include "cpu.hpp"
+#include "ppu.hpp"
 #include "utility.hpp"
 #include "cartridge.hpp"
 #include "memory.hpp"
+#include "SFML/Graphics.hpp"
 
 
 int main(int argc, char* argv[]){
@@ -14,10 +16,10 @@ int main(int argc, char* argv[]){
 
   Cartridge Cartridge(argv[1]);
   
-  // Utils::print_vector(Cartridge.Rom);
+  // Utils::print_vector(Cartridge::Rom);
 
-  Memory::Write(0x60, 100);
-  Memory::Read(0x60);
+  get_tile();
+  // create_window();
 
   std::cout << "Goodbye C++" << std::endl;
   

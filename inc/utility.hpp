@@ -13,8 +13,8 @@ struct Utils{
 
   // Print vector of any type in hex
   template<typename T>
-  static void print_vector(std::vector<T> vec){
-    for(auto i: vec){
+  static void print_vector(const T &vec){
+    for(const auto i: vec){
       std::cout << std::format("{:02X}", i) << " " ;
     } endline;
   }

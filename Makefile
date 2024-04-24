@@ -1,32 +1,34 @@
 CC = g++
 BIN = ./bin/
 SRC = ./src/
-INC = ./inc/
+INC = -I./inc/ -I./ext/SFML/
 FLAG = -std=c++20 -Wall -Wextra -Wpedantic -Wconversion
 BUILD = ./build/
+LIBRARY = -L./ext/SFML/lib
+LIBS = -lsfml-window -lsfml-system -lsfml-graphics
 
 SOURCES = cartridge.cpp cpu.cpp utility.cpp memory.cpp \
-instructions.cpp
+instructions.cpp ppu.cpp GBWindow.cpp
 
 OBJECTS = $(SOURCES:%.cpp=$(BUILD)%.o)
 
 all: directories main
 
 main: $(OBJECTS)
-	$(CC) $(FLAG) $(OBJECTS) -I$(INC) $(SRC)main.cpp -o $(BIN)main
+	$(CC) $(FLAG) $(OBJECTS) $(INC) $(SRC)main.cpp $(LIBRARY) $(LIBS) -o $(BIN)main
 	$(MAKE) run 
 
 $(BUILD)%.o: $(SRC)%.cpp
-	$(CC) $(FLAG) -I$(INC) -c $< -o $@ 
+	$(CC) $(FLAG) $(INC) -c $< -o $@ 
+
+.PHONY: run clean directories
 
 directories:
 	if [ ! -d bin ]; then mkdir bin; fi
 	if [ ! -d build ]; then mkdir build; fi
 
-.PHONY: run clean
-
 run:
-	$(BIN)main ./bin/tiles.gb
+	$(BIN)main ./bin/tileset.gb
 
 clean:
 	rm $(BUILD)*.o
