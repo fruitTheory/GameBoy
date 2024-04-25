@@ -7,7 +7,7 @@
 #include "utility.hpp"
 #include "cartridge.hpp"
 #include "memory.hpp"
-#include "SFML/Graphics.hpp"
+#include "GBWindow.hpp"
 
 
 int main(int argc, char* argv[]){
@@ -19,7 +19,7 @@ int main(int argc, char* argv[]){
   // Utils::print_vector(Cartridge::Rom);
 
   get_tile();
-  // create_window();
+  create_window();
 
   std::cout << "Goodbye C++" << std::endl;
   

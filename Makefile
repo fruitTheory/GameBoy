@@ -1,11 +1,11 @@
 CC = g++
 BIN = ./bin/
 SRC = ./src/
-INC = -I./inc/ -I./ext/SFML/
+INC = -I./inc/ -I./inc/raylib/
 FLAG = -std=c++20 -Wall -Wextra -Wpedantic -Wconversion
 BUILD = ./build/
-LIBRARY = -L./ext/SFML/lib
-LIBS = -lsfml-window -lsfml-system -lsfml-graphics
+LIBRARY = -L./lib/
+LIBS = -lraylibdll
 
 SOURCES = cartridge.cpp cpu.cpp utility.cpp memory.cpp \
 instructions.cpp ppu.cpp GBWindow.cpp
