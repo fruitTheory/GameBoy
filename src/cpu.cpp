@@ -47,4 +47,5 @@ bool CPU::Flag::Get(Flag::type flag_type){
   default:
     break;
   }
+  throw std::runtime_error("Invalid Flag type");
 }

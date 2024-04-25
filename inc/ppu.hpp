@@ -1,8 +1,9 @@
 #pragma once
 
+#include <cstdint>
 
 // inline float shade[4]{0, 0.33f, 0.66f, 1};
-inline int shade[4]{0, 84, 168, 255};
+inline uint8_t shade[4]{0, 84, 168, 255};
 // enum col { BLACK, DARK_GREY, GREY, WHITE };
 
 class PPU {

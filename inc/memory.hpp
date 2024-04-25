@@ -10,7 +10,7 @@ class Memory {
 
   public:
 
-  inline static std::array<uint8_t, ADDRESS_BUS> Address;
+  inline static std::array<int, ADDRESS_BUS> Address;
   static int Read(int address);
   static void Write(int address, int value);
   static void Check(int address, int value=0);

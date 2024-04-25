@@ -1,7 +1,7 @@
 CC = g++
 BIN = ./bin/
 SRC = ./src/
-INC = -I./inc/ -I./inc/raylib/
+INC = -I./inc/ -IC:/Programs/raylib/include
 FLAG = -std=c++20 -Wall -Wextra -Wpedantic -Wconversion
 BUILD = ./build/
 LIBRARY = -L./lib/

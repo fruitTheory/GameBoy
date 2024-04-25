@@ -11,7 +11,7 @@ void create_window(){
   const int screenHeight = 400;
   InitWindow(screenWidth, screenHeight, "Title");
   SetTargetFPS(60);
-  int input_value;
+  int input_value = 2;
   uint8_t pixel = 100;
   Color c;
 
