@@ -2,5 +2,10 @@
 
 #include <vector>
 
-void CreateWindow();
-void DrawPattern(std::vector<int> pattern={0});
+namespace GB{
+class Window {
+  public:
+  static void Create();
+  static void DrawPattern(std::vector<int> pattern={0});
+};
+}

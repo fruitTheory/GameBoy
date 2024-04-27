@@ -3,6 +3,8 @@
 #include <cstdint>
 #include <vector>
 
+// PPU design WIP
+
 // inline float shade[4]{0, 0.33f, 0.66f, 1};
 inline uint8_t palette[4]{0, 84, 168, 255};
 // enum col { BLACK, DARK_GREY, GREY, WHITE };

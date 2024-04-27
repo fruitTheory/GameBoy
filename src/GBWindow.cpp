@@ -4,14 +4,12 @@
 #include "utility.hpp"
 #include <iostream>
 #include <cstdint>
-#include <array>
 #include <vector>
 
-using std::array;
 using std::vector;
 
-// More C based syntax, created raylib window
-void CreateWindow(){
+// More C based syntax, raylib created window
+void GB::Window::Create(){
 
   SetTraceLogLevel(LOG_ERROR);
   // Initialization
@@ -35,7 +33,7 @@ void CreateWindow(){
 }
 
 // Draw pixels based on a pattern
-void DrawPattern(vector<int>pattern){
+void GB::Window::DrawPattern(vector<int>pattern){
 
   Color Ci; // Result color
   uint8_t pixel_value = 100; // Default value/color
@@ -72,29 +70,6 @@ void DrawPattern(vector<int>pattern){
     else{ ++inc_x; x += pixel_size+2; }
     // Y is one step behind X hence 8 before needing clear Y
     if(inc_y == 8){ inc_y = 0; y = 0;}
-
   }
 
-  // for(int y = 0; y < 50; y+=pixel_size+2){
-  //   for(int x = 0; x < 50; x+=pixel_size+1){
-
-  //     switch(2){
-  //       case 0:
-  //         pixel_value = palette[0];
-  //         break;
-  //       case 1:
-  //         pixel_value = palette[1];
-  //         break;
-  //       case 2:
-  //         pixel_value = palette[2];
-  //         break;
-  //       case 3:
-  //         pixel_value = palette[3];
-  //         break;
-  //     }
-  //     std::cout << x << std::endl;
-  //     Ci = {pixel_value, pixel_value, pixel_value, alpha};
-  //     DrawRectangle(30+x,30+y, pixel_size, pixel_size, Ci);
-  //   }
-  // }
 }
