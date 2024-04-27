@@ -18,8 +18,7 @@ int main(int argc, char* argv[]){
   
   // Utils::print_vector(Cartridge::Rom);
 
-  get_tile();
-  create_window();
+  CreateWindow();
 
   std::cout << "Goodbye C++" << std::endl;
   

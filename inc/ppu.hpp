@@ -1,17 +1,19 @@
 #pragma once
 
 #include <cstdint>
+#include <vector>
 
 // inline float shade[4]{0, 0.33f, 0.66f, 1};
-inline uint8_t shade[4]{0, 84, 168, 255};
+inline uint8_t palette[4]{0, 84, 168, 255};
 // enum col { BLACK, DARK_GREY, GREY, WHITE };
 
 class PPU {
   public:
-  int temp=1;
+
 };
 
-void get_tile();
+std::vector<int> get_tile();
+std::vector<int> get_rom_values(int start_address, int amount_of_values);
 
 
 /*
