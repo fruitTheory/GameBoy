@@ -15,7 +15,7 @@ vector<int> PPU::get_tile(int address){
   vector<int> rom_value = get_rom_values(address, 16);
   int shade = 0;
   int iter = 0;
-
+  // For loop to work with individual bits
   for(int a = 0; a < 8; ++a){
     for(int b = 7; b >= 0; b--){
       // Get current bit value, starting with most significant by using >> 7

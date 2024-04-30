@@ -18,7 +18,6 @@ class Memory {
 
 };
 
-
 /*
 Hardware Registers
 

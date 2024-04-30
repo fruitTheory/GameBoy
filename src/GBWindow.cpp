@@ -25,7 +25,6 @@ void GB::Window::Create(){
 
     ClearBackground(GRAY);
     DrawText("Hello World!", 150, 180, 20, LIGHTGRAY);
-    // DrawFPS(10, 10);
     PPU::DrawTilemap();
 
     EndDrawing();

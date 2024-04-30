@@ -17,5 +17,4 @@ struct Utils{
       std::cout << std::format("{:02X}", i) << " " ;
     } endline;
   }
-
 };
