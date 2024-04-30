@@ -7,4 +7,4 @@ Using Raylib for simplicity and @NesHacker example Rom to start
 
 WIP 
   
-<img src="./.img/scrn.png" alt="Tile Test" style="width: 30%; height: 25%;"> 
+<img src="./.img/scrn.png" alt="Tile Test" style="width: 60%; height: 55%;"> 
