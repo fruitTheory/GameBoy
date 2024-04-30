@@ -1,3 +1,10 @@
 # emulator
 - SM83
-- Gameboy Color
+- Gameboy Color  
+
+Second emulator, starting with PPU as that was most challenging  
+Using Raylib for simplicity and @NesHacker example Rom to start   
+
+WIP 
+  
+<img src="./.img/scrn.png" alt="Tile Test" style="width: 30%; height: 25%;"> 

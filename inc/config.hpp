@@ -2,8 +2,6 @@
 
 #define RAM_SIZE 8192
 #define VRAM_SIZE 8192
-#define SCREEN_SIZE_X 160
-#define SCREEN_SIZE_Y 144
 #define ROM_BANK_0_SIZE 16383
 #define ROM_BANK_1_SIZE 16383
 #define ADDRESS_BUS 65535

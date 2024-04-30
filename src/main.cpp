@@ -14,9 +14,10 @@ int main(int argc, char* argv[]){
 
   std::cout << "Hello C++" << std::endl;
 
-  Cartridge Cartridge(argv[1]);
-  
-  // Utils::print_vector(Cartridge::Rom);
+  Cartridge Cartridge_b(argv[2]);
+  Cartridge_b.transfer_tilemap();
+  Cartridge Cartridge_a(argv[1]);
+  Cartridge_a.transfer_tileset();
 
   GB::Window::Create();
 
