@@ -9,3 +9,5 @@ class Window {
   static void Create();
 };
 }
+
+void window_test(char* argv[]);

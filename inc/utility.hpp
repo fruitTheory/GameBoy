@@ -9,6 +9,7 @@ struct Utils{
 
   static void print_binary(int num);
   static void print_buffer(uint8_t* buffer, size_t size);
+  static int convert_signed(int number);
 
   // Print vector of any type in hex
   template<typename T>

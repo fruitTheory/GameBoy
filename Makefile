@@ -28,7 +28,7 @@ directories:
 	if [ ! -d build ]; then mkdir build; fi
 
 run:
-	$(BIN)main ./bin/tileset.gb ./bin/level.tilemap
+	$(BIN)main ./bin/GameBoyDev.gb ./bin/tileset.gb ./bin/level.tilemap
 
 clean:
 	rm $(BUILD)*.o

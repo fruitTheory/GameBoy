@@ -12,6 +12,8 @@
 #define TILE_PIXELS 8
 
 #define endline std::cout << std::endl 
+#define print(value) std::cout << (value) << std::endl
+#define printhex(value) std::cout << std::hex << (value) << std::endl
 
 /*
 

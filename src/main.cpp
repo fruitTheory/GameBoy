@@ -8,25 +8,21 @@
 #include "cartridge.hpp"
 #include "memory.hpp"
 #include "GBWindow.hpp"
+#include "instructions.hpp"
 
 
 int main(int argc, char* argv[]){
 
   std::cout << "Hello C++" << std::endl;
 
-  Cartridge Cartridge_b(argv[2]);
-  Cartridge_b.transfer_tilemap();
-  Cartridge Cartridge_a(argv[1]);
-  Cartridge_a.transfer_tileset();
-
-  GB::Window::Create();
+  Cartridge Cart(argv[1]);
+  // window_test(argv);
 
   std::cout << "Goodbye C++" << std::endl;
   
   return EXIT_SUCCESS;
 
 }
-
 
 /*
  Interrupt Enable Register

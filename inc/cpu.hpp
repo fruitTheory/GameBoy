@@ -1,7 +1,12 @@
 #pragma once
 
+#include <vector>
+
 // Single core cpu
 namespace CPU {
+
+  // Program counter
+  extern int PC;
 
   // Flags - note these would be lower 8 bits of AF register
   struct Flag {
@@ -35,12 +40,6 @@ namespace CPU {
     inline static int H;
     inline static int L;
 
-    // 16-bit
-    inline static int AF;
-    inline static int BC;
-    inline static int DE;
-    inline static int HL;
-
     // 16-bit pointers
     inline static int PC;
     inline static int SP;
@@ -48,21 +47,14 @@ namespace CPU {
     static int Combine(int high_byte, int low_byte);
 
   };
-
-  // Program counter
-  struct PC {
-
-    // Starts at 0x100, executes instruction then follows programmer
-    PC(){};
-    void get();
-  };
-
+  
   // Stack
-  class stack
+  class Stack
   {
   public:
-    int push();
-    int pop();
+    inline static std::vector<int> container;
+    static void Push(int address);
+    static void Pop();
   };
 
 }

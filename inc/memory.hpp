@@ -14,7 +14,8 @@ class Memory {
   inline static std::array<int, ADDRESS_BUS> Address;
   static int Read(int address);
   static void Write(int address, int value);
-
+  static int Get_Word();
+  static int Get_Byte();
 
 };
 

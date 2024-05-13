@@ -2,6 +2,7 @@
 #include "raylib.h"
 #include "ppu.hpp"
 #include "utility.hpp"
+#include "cartridge.hpp"
 #include <iostream>
 #include <cstdint>
 #include <vector>
@@ -30,4 +31,13 @@ void GB::Window::Create(){
     EndDrawing();
   }
   CloseWindow(); 
+}
+
+// Temporary
+void window_test(char* argv[]){
+  Cartridge Cartridge_b(argv[3]);
+  Cartridge_b.transfer_tilemap();
+  Cartridge Cartridge_a(argv[2]);
+  Cartridge_a.transfer_tileset();
+  GB::Window::Create();
 }

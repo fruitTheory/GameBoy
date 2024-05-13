@@ -23,5 +23,4 @@ class PPU {
   static std::vector<int> get_tile(int address);
   static std::vector<int> get_rom_values(int start_address, int amount_of_values);
 
-
 };

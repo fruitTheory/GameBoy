@@ -1,7 +1,8 @@
-#include <iostream>
-#include <cstdint>
 #include "utility.hpp"
 #include "config.hpp"
+#include <iostream>
+#include <cstdint>
+#include <format>
 
 // Print 16 bit max binary
 void Utils::print_binary(int num){
@@ -18,4 +19,13 @@ void Utils::print_buffer(uint8_t* buffer, size_t size){
   for(size_t i = 0; i < size; i++){
     printf("%02X ", buffer[i]);
   } endline;
+}
+
+// Convert unsigned to signed 
+int Utils::convert_signed(int number){
+  if(number > 255){
+    throw std::runtime_error(
+    std::format("Number: '{}' is out of unsigned Range.", number));}
+  int result = 127 - number;
+  return result;
 }

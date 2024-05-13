@@ -3,10 +3,14 @@
 
 using namespace CPU;
 
+int CPU::PC = 0x100; // Initial pc address
 
-int CPU::Register::Combine(int high_byte, int low_byte){
-  int combined = (high_byte << 8) + low_byte;
-  return combined;
+void CPU::Stack::Push(int address){
+  Stack::container.push_back(address);
+}
+
+void CPU::Stack::Pop(){
+  Stack::container.pop_back();
 }
 
 void CPU::Flag::Set(Flag::type flag_type, bool value){
@@ -48,4 +52,9 @@ bool CPU::Flag::Get(Flag::type flag_type){
     break;
   }
   throw std::runtime_error("Invalid Flag type");
+}
+
+int CPU::Register::Combine(int high_byte, int low_byte){
+  int combined = (high_byte << 8) + low_byte;
+  return combined;
 }
