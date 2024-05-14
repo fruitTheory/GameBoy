@@ -1,10 +1,9 @@
+#include "cartridge.hpp"
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <cstdint>
-#include "cartridge.hpp"
-
-#define byte char
+#include <cstring>
 
 using std::vector;
 using std::istreambuf_iterator;
@@ -13,10 +12,9 @@ using std::istreambuf_iterator;
 vector<uint8_t> Cartridge::load(std::string file){
 
   std::ifstream cartridge(file, std::ios::in | std::ios::binary);
-  vector<uint8_t> buffer((istreambuf_iterator<byte>(cartridge)), 
-  istreambuf_iterator<byte>());
+  vector<uint8_t> buffer((istreambuf_iterator<char>(cartridge)), 
+  istreambuf_iterator<char>());
   cartridge.close();
 
   return buffer;
-
 }

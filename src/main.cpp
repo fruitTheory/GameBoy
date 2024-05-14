@@ -18,6 +18,10 @@ int main(int argc, char* argv[]){
   Cartridge Cart(argv[1]);
   // window_test(argv);
 
+  Memory::Init();
+  Memory::Write(0x00, 100);
+  Utils::print_vector_limit(Memory::Address, 20);
+
   std::cout << "Goodbye C++" << std::endl;
   
   return EXIT_SUCCESS;

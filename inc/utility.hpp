@@ -18,4 +18,14 @@ struct Utils{
       std::cout << std::format("{:02X}", i) << " " ;
     } endline;
   }
+  // Print vector of any type in hex
+  template<typename T>
+  static void print_vector_limit(const T &vec, int limit){
+    int count = 0; 
+    for(const auto i: vec){
+      ++count;
+      if(count > limit){break;}
+      std::cout << std::format("{:02X}", i) << " " ;
+    } endline;
+  }
 };

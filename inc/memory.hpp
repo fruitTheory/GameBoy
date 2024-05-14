@@ -1,7 +1,8 @@
 #pragma once
-#include <array>
-#include <cstdint>
 #include "config.hpp"
+#include <array>
+#include <vector>
+#include <cstdint>
 
 // Direct memory access 
 class Memory {
@@ -10,10 +11,11 @@ class Memory {
   static void Check(int address, int value=0);
   
   public:
-
-  inline static std::array<int, ADDRESS_BUS> Address;
+  inline static std::array<uint8_t, ADDRESS_BUS> Address;
   static int Read(int address);
   static void Write(int address, int value);
+  static void CopyToMem(std::vector<uint8_t> vec, int address);
+  static void Init();
   static int Get_Word();
   static int Get_Byte();
 

@@ -4,6 +4,8 @@
 #include "utility.hpp"
 #include <iostream>
 #include <format>
+#include <vector>
+#include <algorithm>
 
 // Check if address is valid
 void Memory::Check(int address, int value){
@@ -41,4 +43,14 @@ int Memory::Get_Word(){
 int Memory::Get_Byte(){
   int n8 = Cartridge::Rom[CPU::PC+1];
   return n8;
+}
+
+void Memory::CopyToMem(std::vector<uint8_t> vec, int address){
+    if((vec.size() + address) > (ADDRESS_BUS + 1)){ 
+      throw std::runtime_error("Copy beyond address bounds!");}
+    std::copy(vec.begin(), vec.end(), Memory::Address.begin()+address);
+}
+
+void Memory::Init(){
+  Memory::CopyToMem(Cartridge::Rom, 0x00);
 }
