@@ -20,7 +20,13 @@ int main(int argc, char* argv[]){
   // window_test(argv);
 
   LD_BC_n16();
-  printhex(CPU::Register::B);
+
+  // testing
+  CPU::Stack::Push(0x69); CPU::Stack::Push(0x101);
+  Utils::print_vector(CPU::Stack::container);
+  int val = CPU::Stack::Pop();
+  print("popped: "); printhex(val);
+  Utils::print_vector(CPU::Stack::container);
 
   std::cout << "Goodbye C++" << std::endl;
   

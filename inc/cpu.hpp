@@ -17,18 +17,23 @@ namespace CPU {
     inline static bool Half_Carry;
     inline static bool Carry;
 
-    enum type { ZERO, SUBTRACT, HALF_CARRY, CARRY };
-    static void Set(Flag::type flag_type, bool value);
-    static bool Get(Flag::type flag_type);
-
-  };
-  
-  // Decode instructions  
-  class control {
+    inline static void Set(bool &flag_type, bool value){flag_type = value;}
+    inline static bool Get(bool &flag){return flag;};
 
   };
 
-  // Holds state of cpu
+  // Stack
+  class Stack
+  {
+  public:
+    inline static std::vector<int> container;
+  public:
+    inline static void Push(int n16){container.push_back(n16);}
+    inline static int Pop(){int value = container.back(); 
+    container.pop_back(); return value; }
+  };
+
+    // Holds state of cpu
   struct Register {
     
     // 8-bit
@@ -49,14 +54,10 @@ namespace CPU {
     static void Store_n16(int n16, int &reg_high, int &reg_low);
 
   };
-  
-  // Stack
-  class Stack
-  {
-  public:
-    inline static std::vector<int> container;
-    static void Push(int address);
-    static void Pop();
+
+  // Decode instructions  
+  class control {
+
   };
 
 }

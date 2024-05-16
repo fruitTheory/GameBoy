@@ -32,9 +32,9 @@ void JR_C_n8(){ // 0x38
 void CP_A_n8(){ // 0xFE
   int n8 = Memory::Get_Byte();
   int compare = Register::A - n8;
-  if(compare == 0){Flag::Set(Flag::ZERO, true);}
-  if(n8 > Register::A){Flag::Set(Flag::CARRY, true);}
-  Flag::Set(Flag::SUBTRACT, true);
+  if(compare == 0){Flag::Set(Flag::Zero, true);}
+  if(n8 > Register::A){Flag::Set(Flag::Carry, true);}
+  Flag::Set(Flag::Subtract, true);
   CPU::PC_increment(1);
 }
 
