@@ -9,6 +9,7 @@ void LD_A_n8();
 void LD_m16_A();
 void LD_BC_n16();
 void LD_HL_n16();
+void LD_HLI_A();
 
 void CP_A_n8();
 

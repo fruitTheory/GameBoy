@@ -13,7 +13,7 @@
 
 #define endline std::cout << std::endl 
 #define print(value) std::cout << (value) << std::endl
-#define printhex(value) std::cout << std::hex << (value) << std::endl
+#define printhex(value) std::cout << std::format("{:02X}", value) << std::endl;
 
 /*
 

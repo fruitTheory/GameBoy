@@ -7,6 +7,7 @@ namespace CPU {
 
   // Program counter
   extern int PC;
+  inline void PC_increment(int value){CPU::PC += value;};
 
   // Flags - note these would be lower 8 bits of AF register
   struct Flag {
@@ -45,6 +46,7 @@ namespace CPU {
     inline static int SP;
 
     static int Combine(int high_byte, int low_byte);
+    static void Store_n16(int n16, int &reg_high, int &reg_low);
 
   };
   

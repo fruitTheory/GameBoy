@@ -16,11 +16,11 @@ int main(int argc, char* argv[]){
   std::cout << "Hello C++" << std::endl;
 
   Cartridge Cart(argv[1]);
+  Memory::Init();
   // window_test(argv);
 
-  Memory::Init();
-  Memory::Write(0x00, 100);
-  Utils::print_vector_limit(Memory::Address, 20);
+  LD_BC_n16();
+  printhex(CPU::Register::B);
 
   std::cout << "Goodbye C++" << std::endl;
   

@@ -34,14 +34,14 @@ void Memory::Write(int address, int value){
 
 // Reading from memory using PC, returns n16
 int Memory::Get_Word(){
-  int low = Cartridge::Rom[CPU::PC+1];
-  int high = Cartridge::Rom[CPU::PC+2];
+  int low = Memory::Address[CPU::PC+1];
+  int high = Memory::Address[CPU::PC+2];
   int n16 = CPU::Register::Combine(high, low);
   return n16;
 }
 // Reading from memory using PC, returns n8
 int Memory::Get_Byte(){
-  int n8 = Cartridge::Rom[CPU::PC+1];
+  int n8 = Memory::Address[CPU::PC+1];
   return n8;
 }
 

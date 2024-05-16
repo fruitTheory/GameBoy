@@ -10,7 +10,7 @@ using namespace CPU;
 std::unordered_map<int, void(*)()> opcode={
   {0xC3, JP_n16}, {0x3E, LD_A_n8}, {0xEA, LD_m16_A},
   {0xFE, LD_m16_A}, {0x38, JR_C_n8}, {0xCD, CALL_m16},
-  {0x01, LD_BC_n16}, {0x21, LD_HL_n16},
+  {0x01, LD_BC_n16}, {0x21, LD_HL_n16}, {0x22, LD_HLI_A},
 };
 
 // Call pushes address of instruction after 'call' to stack
@@ -25,7 +25,7 @@ void CALL_m16(){ // 0xCD
 void JR_C_n8(){ // 0x38
   int byte = Memory::Get_Byte();
   if(byte > 127){byte = Utils::convert_signed(byte);};
-  if(Flag::Carry == true){CPU::PC += byte; }
+  if(Flag::Carry == true){CPU::PC_increment(byte);}
 }
 
 // Subtract n8 value from A but throw away result
@@ -35,18 +35,30 @@ void CP_A_n8(){ // 0xFE
   if(compare == 0){Flag::Set(Flag::ZERO, true);}
   if(n8 > Register::A){Flag::Set(Flag::CARRY, true);}
   Flag::Set(Flag::SUBTRACT, true);
+  CPU::PC_increment(1);
 }
 
+// Load 16 bit into BC combined register
 void LD_BC_n16(){ // 0x01
   int n16 = Memory::Get_Word();
   CPU::Register::B = n16 >> 8;
-  CPU::Register::C = n16 & 0xFF00;
+  CPU::Register::C = n16 & 0x00FF;
+  CPU::PC_increment(2);
 }
 
+// Load 16 bit into HL combined register
 void LD_HL_n16(){ // 0x21
   int n16 = Memory::Get_Word();
   CPU::Register::H = n16 >> 8;
-  CPU::Register::L = n16 & 0xFF00;
+  CPU::Register::L = n16 & 0x00FF;
+}
+
+// Load A into address pointed to by HL and increment HL
+void LD_HLI_A(){ // 0x22
+  int n8 = Memory::Get_Byte();
+  int HL = Register::Combine(Register::H, Register::L);
+  Memory::Write(HL, n8); ++HL;
+  Register::Store_n16(HL, Register::H, Register::L);
 }
 
 // Load A into an address
