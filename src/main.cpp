@@ -15,7 +15,7 @@ int main(int argc, char* argv[]){
 
   GameBoy::Init(cartridge);
   GameBoy::Run();
-  GameBoy::Display(tileset, tilemap);
+  // GameBoy::Display(tileset, tilemap);
 
   std::cout << "Goodbye C++" << std::endl;
   
@@ -79,7 +79,3 @@ High RAM (FF80-FFFE): Additional general-purpose RAM
 Interrupt Enable Register (FFFF): Register for enabling and disabling interrupts
 
 */
-
-
-
-

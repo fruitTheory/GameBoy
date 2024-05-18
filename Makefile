@@ -1,14 +1,14 @@
 CC = g++
 BIN = ./bin/
 SRC = ./src/
-INC = -I./inc/ -I./src/ -IC:/Programs/raylib/include
+INC = -I./inc/ -IC:/Programs/raylib/include
 FLAG = -std=c++20 -Wall -Wextra -Wpedantic -Wconversion
 BUILD = ./build/
 LIBRARY = -L./lib/
 LIBS = -lraylibdll
 
 SOURCES = cartridge.cpp cpu.cpp utility.cpp memory.cpp \
-instructions.cpp ppu.cpp GBWindow.cpp gameboy.cpp
+instructions.cpp ppu.cpp GBWindow.cpp
 
 OBJECTS = $(SOURCES:%.cpp=$(BUILD)%.o)
 
@@ -28,7 +28,7 @@ directories:
 	if [ ! -d build ]; then mkdir build; fi
 
 run:
-	$(BIN)main ./bin/GameBoyDev.gb ./bin/tileset.gb ./bin/level.tilemap
+	$(BIN)main ./bin/data/GameBoyDev.gb ./bin/data/tileset.gb ./bin/data/level.tilemap
 
 clean:
 	rm $(BUILD)*.o
