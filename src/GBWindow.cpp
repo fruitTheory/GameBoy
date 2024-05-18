@@ -34,10 +34,10 @@ void GB::Window::Create(){
 }
 
 // Temporary
-void window_test(char* argv[]){
-  Cartridge Cartridge_b(argv[3]);
+void window_test(const char* arg_1, const char* arg_2){
+  Cartridge Cartridge_b(arg_2);
   Cartridge_b.transfer_tilemap();
-  Cartridge Cartridge_a(argv[2]);
+  Cartridge Cartridge_a(arg_1);
   Cartridge_a.transfer_tileset();
   GB::Window::Create();
 }

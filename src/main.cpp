@@ -2,26 +2,20 @@
 #include <iostream>
 #include <ostream>
 #include <cstdint>
-#include "cpu.hpp"
-#include "ppu.hpp"
-#include "utility.hpp"
-#include "cartridge.hpp"
-#include "memory.hpp"
-#include "GBWindow.hpp"
-#include "instructions.hpp"
+#include "includes.hpp"
 
+using namespace CPU;
 
 int main(int argc, char* argv[]){
 
   std::cout << "Hello C++" << std::endl;
+  const char* cartridge = argv[1];
+  const char* tileset = argv[2]; 
+  const char* tilemap = argv[3];
 
-  Cartridge Cart(argv[1]);
-  Memory::Init();
-  // window_test(argv);
-
-  printhex(CPU::Register::B);
-  Instruction::fetch_decode(0x01);
-  printhex(CPU::Register::B);
+  GameBoy::Init(cartridge);
+  GameBoy::Run();
+  GameBoy::Display(tileset, tilemap);
 
   std::cout << "Goodbye C++" << std::endl;
   

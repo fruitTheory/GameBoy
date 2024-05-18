@@ -13,7 +13,7 @@ class Cartridge{
   vector<uint8_t> load(std::string file);
 
   public:
-  Cartridge(std::string cartridge){
+  Cartridge(const std::string cartridge){
     Rom = load(cartridge);
     std::cout << "Cartridge name: " << cartridge << std::endl;
     std::cout << "Cartridge size: " << Rom.size() << std::endl;

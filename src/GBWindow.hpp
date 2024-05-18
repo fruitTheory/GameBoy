@@ -10,4 +10,4 @@ class Window {
 };
 }
 
-void window_test(char* argv[]);
+void window_test(const char* tileset, const char* tilemap);

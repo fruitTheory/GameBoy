@@ -25,7 +25,7 @@ void Instruction::fetch_decode(int opcode){
 // Call pushes address of instruction after 'call' to stack
 // Then goes to the supplied address
 void CALL_m16(){ // 0xCD
-  Stack::Push((CPU::PC+2));
+  Stack::Push((CPU::PC+3));
   CPU::PC = Memory::Get_Word();
 }
 
@@ -44,7 +44,7 @@ void CP_A_n8(){ // 0xFE
   if(compare == 0){Flag::Set(Flag::Zero, true);}
   if(n8 > Register::A){Flag::Set(Flag::Carry, true);}
   Flag::Set(Flag::Subtract, true);
-  CPU::PC_increment(1);
+  CPU::PC_increment(2);
 }
 
 // Load 16 bit into BC combined register
@@ -52,7 +52,7 @@ void LD_BC_n16(){ // 0x01
   int n16 = Memory::Get_Word();
   CPU::Register::B = n16 >> 8;
   CPU::Register::C = n16 & 0x00FF;
-  CPU::PC_increment(2);
+  CPU::PC_increment(3);
 }
 
 // Load 16 bit into HL combined register
@@ -60,6 +60,7 @@ void LD_HL_n16(){ // 0x21
   int n16 = Memory::Get_Word();
   CPU::Register::H = n16 >> 8;
   CPU::Register::L = n16 & 0x00FF;
+  CPU::PC_increment(3);
 }
 
 // Load A into address pointed to by HL and increment HL
@@ -68,18 +69,21 @@ void LD_HLI_A(){ // 0x22
   int HL = Register::Combine(Register::H, Register::L);
   Memory::Write(HL, n8); ++HL;
   Register::Store_n16(HL, Register::H, Register::L);
+  CPU::PC_increment(1);
 }
 
 // Load A into an address
 void LD_m16_A(){ // 0xEA
   int m16 = Memory::Get_Word();
   Memory::Write(m16, CPU::Register::A);
+  CPU::PC_increment(3);
 }
 
 // Load byte into A
 void LD_A_n8(){ // 0x3E
   int n8 = Memory::Get_Byte();
   CPU::Register::A = n8;
+  CPU::PC_increment(2);
 }
 
 // Jump to address

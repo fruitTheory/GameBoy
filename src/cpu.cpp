@@ -3,7 +3,7 @@
 
 using namespace CPU;
 
-int CPU::PC = 0x4E; // Initial pc address
+int CPU::PC = 0x100; // Initial pc address
 
 // Combine two bytes and return the value
 int CPU::Register::Combine(int high_byte, int low_byte){
