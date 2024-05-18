@@ -2,8 +2,7 @@
 - SM83
 - Gameboy Color  
 
-Second emulator, starting with PPU as that was most challenging  
-Using Raylib for simplicity and @NesHacker example Rom to start   
+Second emulator: Using Raylib for simplicity and @NesHacker example Rom starter   
 
 WIP 
   
