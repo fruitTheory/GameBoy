@@ -6,13 +6,22 @@
 #include <functional>
 
 using namespace CPU;
+using VoidPtr = void(*)();
 
-std::unordered_map<int, void(*)()> opcode={
+std::unordered_map<int, VoidPtr> Instruction::execute={
   {0xC3, JP_n16}, {0x3E, LD_A_n8}, {0xEA, LD_m16_A},
   {0xFE, LD_m16_A}, {0x38, JR_C_n8}, {0xCD, CALL_m16},
   {0x01, LD_BC_n16}, {0x21, LD_HL_n16}, {0x22, LD_HLI_A},
 };
 
+void Instruction::fetch_decode(int opcode){
+  if(Instruction::execute.contains(opcode)){
+    Instruction::execute[opcode](); } 
+  else{ throw std::runtime_error(
+      std::format("Opcode (0x{:02X}) doesn't exist.", opcode)
+    );
+  }
+}
 // Call pushes address of instruction after 'call' to stack
 // Then goes to the supplied address
 void CALL_m16(){ // 0xCD

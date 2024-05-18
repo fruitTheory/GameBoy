@@ -19,14 +19,9 @@ int main(int argc, char* argv[]){
   Memory::Init();
   // window_test(argv);
 
-  LD_BC_n16();
-
-  // testing
-  CPU::Stack::Push(0x69); CPU::Stack::Push(0x101);
-  Utils::print_vector(CPU::Stack::container);
-  int val = CPU::Stack::Pop();
-  print("popped: "); printhex(val);
-  Utils::print_vector(CPU::Stack::container);
+  printhex(CPU::Register::B);
+  Instruction::fetch_decode(0x01);
+  printhex(CPU::Register::B);
 
   std::cout << "Goodbye C++" << std::endl;
   

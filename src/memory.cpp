@@ -10,11 +10,11 @@
 // Check if address is valid
 void Memory::Check(int address, int value){
     if(address < 0 || address > ADDRESS_BUS){
-    throw std::runtime_error(
+    throw std::range_error(
     std::format("Address: '{}' out of 16-bit Range.", address)
     );
   } if(value < 0 || value > BYTE){
-    throw std::runtime_error(
+    throw std::range_error(
     std::format("Memory value: '{}' out of 8-bit Range.", value)
     );
   }
@@ -47,7 +47,7 @@ int Memory::Get_Byte(){
 
 void Memory::CopyToMem(std::vector<uint8_t> vec, int address){
     if((vec.size() + address) > (ADDRESS_BUS + 1)){ 
-      throw std::runtime_error("Copy beyond address bounds!");}
+      throw std::out_of_range("Copy beyond address bounds!");}
     std::copy(vec.begin(), vec.end(), Memory::Address.begin()+address);
 }
 

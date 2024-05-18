@@ -2,8 +2,10 @@
 
 #include <unordered_map>
 
-extern std::unordered_map<int, void(*)()> opcode;
-
+namespace Instruction{
+  extern std::unordered_map<int, void(*)()> execute;
+  void fetch_decode(int opcode);
+}
 
 void LD_A_n8();
 void LD_m16_A();

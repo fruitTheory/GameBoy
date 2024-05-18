@@ -24,7 +24,7 @@ void Utils::print_buffer(uint8_t* buffer, size_t size){
 // Convert unsigned to signed 
 int Utils::convert_signed(int number){
   if(number > 255){
-    throw std::runtime_error(
+    throw std::range_error(
     std::format("Number: '{}' is out of unsigned Range.", number));}
   int result = 127 - number;
   return result;

@@ -29,8 +29,8 @@ namespace CPU {
     inline static std::vector<int> container;
   public:
     inline static void Push(int n16){container.push_back(n16);}
-    inline static int Pop(){int value = container.back(); 
-    container.pop_back(); return value; }
+    inline static int Pop(){int val = container.back(); 
+    container.pop_back(); return val; }
   };
 
     // Holds state of cpu
