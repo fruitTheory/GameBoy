@@ -15,6 +15,9 @@
 #define print(value) std::cout << (value) << std::endl
 #define printhex(value) std::cout << std::format("{:02X}", value) << std::endl;
 
+#define LY 0xFF44 // LCD Y coordinate
+#define NR52 0xFF26 // Sound on/off
+
 /*
 
 0000	3FFF	16 KiB ROM bank 00	From cartridge, usually a fixed bank

@@ -10,8 +10,9 @@ using VoidPtr = void(*)();
 
 std::unordered_map<int, VoidPtr> Instruction::execute={
   {0xC3, JP_n16}, {0x3E, LD_A_n8}, {0xEA, LD_m16_A},
-  {0xFE, LD_m16_A}, {0x38, JR_C_n8}, {0xCD, CALL_m16},
+  {0xFE, CP_A_n8}, {0x38, JR_C_n8}, {0xCD, CALL_m16},
   {0x01, LD_BC_n16}, {0x21, LD_HL_n16}, {0x22, LD_HLI_A},
+  {0xFA, LD_A_n16},
 };
 
 void Instruction::fetch_decode(int opcode){
@@ -79,6 +80,13 @@ void LD_m16_A(){ // 0xEA
   CPU::PC_increment(3);
 }
 
+// Load word into A
+void LD_A_n16(){ // 0xFA
+  int n16 = Memory::Get_Byte();
+  CPU::Register::A = n16;
+  CPU::PC_increment(3);
+}
+
 // Load byte into A
 void LD_A_n8(){ // 0x3E
   int n8 = Memory::Get_Byte();
@@ -92,17 +100,3 @@ void JP_n16(){ // 0xC3
   CPU::PC = n16;
 }
 
-
-
-// // Add the value in r8 to A
-// void ADD_A_r8(){ CPU::Register::A += r8; }
-// // Add the byte pointed to by HL to A
-// void ADD_A_HL(){ Register::A += Memory::Address[Register::H];}
-// // Add the value n8 to A
-// void ADD_A_n8(){ CPU::Register::A += n8; }
-// // Add the value in r16 to HL
-// void ADD_A_r16(){ CPU::Register::A += r16; }
-// // Add the value in SP to HL
-// void ADD_HL_SP(){ CPU::Register::H += Register::SP; }
-// // Add the signed value e8 to SP
-// void ADD_SP_e8(){ CPU::Register::SP += e8; }

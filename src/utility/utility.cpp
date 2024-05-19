@@ -21,11 +21,12 @@ void Utils::print_buffer(uint8_t* buffer, size_t size){
   } endline;
 }
 
-// Convert unsigned to signed 
+// Convert unsigned to signed, special use only for JR
 int Utils::convert_signed(int number){
   if(number > 255){
     throw std::range_error(
     std::format("Number: '{}' is out of unsigned Range.", number));}
-  int result = 127 - number;
+  int result = -((127 - number) + 129); // conversion
+  --result; // to get to instruction
   return result;
 }

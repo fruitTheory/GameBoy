@@ -63,7 +63,7 @@ add_custom_target(
 Helpful commands:
 cmake -S . -B cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug
 cmake --build cmake -- -j 8
-cmake --build cmake --target run
+cmake --build cmake --target run -- -j 8
 cmake --build cmake --target clean-all
 cmake --build cmake --target install
 ]]
