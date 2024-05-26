@@ -16,6 +16,8 @@ int main(int argc, char* argv[]){
   GameBoy::Init(cartridge);
   GameBoy::Run();
   // GameBoy::Display(tileset, tilemap);
+  window_test(tileset, tilemap);
+  // PPU::StoreTilemap();
 
   std::cout << "Goodbye C++" << std::endl;
   

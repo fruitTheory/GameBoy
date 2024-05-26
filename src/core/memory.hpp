@@ -14,7 +14,7 @@ class Memory {
   inline static std::array<uint8_t, ADDRESS_BUS> Address;
   static int Read(int address);
   static void Write(int address, int value);
-  static void CopyToMem(std::vector<uint8_t> vec, int address);
+  static void CopyToMem(const std::vector<uint8_t> &vec, int address);
   static void Init();
   static int Get_Word();
   static int Get_Byte();

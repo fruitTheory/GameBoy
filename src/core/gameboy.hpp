@@ -6,4 +6,5 @@ class GameBoy{
   static void Init(const char* cartridge);
   static void Run();
   static void Display(const char* tileset, const char* tilemap);
+  static void PowerUp();
 };

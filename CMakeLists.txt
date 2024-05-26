@@ -16,7 +16,7 @@ endif()
 
 set(SRC_DIR ${CMAKE_SOURCE_DIR}/src)
 set(BIN_DIR ${CMAKE_SOURCE_DIR}/bin)
-set(BUILD_DIR ${CMAKE_SOURCE_DIR}/cmake)
+set(BUILD_DIR ${CMAKE_SOURCE_DIR}/build)
 set(BINDATA ${BIN_DIR}/data)
 
 file(GLOB_RECURSE SOURCES ${SRC_DIR}/*.cpp)
@@ -61,9 +61,8 @@ add_custom_target(
 
 #[[
 Helpful commands:
-cmake -S . -B cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug
-cmake --build cmake -- -j 8
-cmake --build cmake --target run -- -j 8
-cmake --build cmake --target clean-all
-cmake --build cmake --target install
+cmake -S . -B build -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug
+cmake --build build --target run -- -j 8
+cmake --build build --target clean-all
+cmake --build build --target install
 ]]

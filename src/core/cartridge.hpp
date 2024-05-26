@@ -22,7 +22,7 @@ class Cartridge{
   inline static vector<uint8_t> Rom;
   inline static vector<uint8_t> Tilemap; // Temporary Rom
   inline static vector<uint8_t> Tileset; // Temporary Rom
-  inline void transfer_tilemap(){ Cartridge::Tilemap = Cartridge::Rom; };
-  inline void transfer_tileset(){ Cartridge::Tileset = Cartridge::Rom; };
+  void transfer_tilemap(){ Cartridge::Tilemap = Cartridge::Rom; };
+  void transfer_tileset(){ Cartridge::Tileset = Cartridge::Rom; };
   
 };

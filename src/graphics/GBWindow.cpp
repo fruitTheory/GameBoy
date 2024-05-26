@@ -26,7 +26,9 @@ void GB::Window::Create(){
 
     ClearBackground(GRAY);
     DrawText("Hello World!", 150, 180, 20, LIGHTGRAY);
-    PPU::DrawTilemap();
+    
+    PPU::FormatTilemap();
+    PPU::DrawTileMap();
 
     EndDrawing();
   }

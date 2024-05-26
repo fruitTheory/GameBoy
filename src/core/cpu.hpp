@@ -17,8 +17,8 @@ namespace CPU {
     inline static bool Half_Carry;
     inline static bool Carry;
 
-    inline static void Set(bool &flag_type, bool value){flag_type = value;}
-    inline static bool Get(bool &flag){return flag;};
+    static void Set(bool &flag_type, bool value){flag_type = value;}
+    static bool Get(bool &flag){return flag;};
 
   };
 
@@ -28,8 +28,8 @@ namespace CPU {
   public:
     inline static std::vector<int> container;
   public:
-    inline static void Push(int n16){container.push_back(n16);}
-    inline static int Pop(){int val = container.back(); 
+    static void Push(int n16){container.push_back(n16);}
+    static int Pop(){int val = container.back(); 
     container.pop_back(); return val; }
   };
 

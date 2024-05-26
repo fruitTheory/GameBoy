@@ -24,5 +24,3 @@ void CALL_cc_n16();
 
 void JR_C_n8();
 void JP_n16();
-
-// FF44

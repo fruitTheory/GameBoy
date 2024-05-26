@@ -45,7 +45,7 @@ int Memory::Get_Byte(){
   return n8;
 }
 
-void Memory::CopyToMem(std::vector<uint8_t> vec, int address){
+void Memory::CopyToMem(const std::vector<uint8_t> &vec, int address){
     if((vec.size() + address) > (ADDRESS_BUS + 1)){ 
       throw std::out_of_range("Copy beyond address bounds!");}
     std::copy(vec.begin(), vec.end(), Memory::Address.begin()+address);
