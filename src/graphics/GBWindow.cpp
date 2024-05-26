@@ -21,13 +21,17 @@ void GB::Window::Create(){
   InitWindow(screenWidth, screenHeight, "Tile");
   SetTargetFPS(60);
 
+  int x_min = 16; int x_max = 176;
+  int y_min = 16; int y_max = 160;
+
+  PPU::FormatTilemap();
+
   while(!WindowShouldClose()){
     BeginDrawing();
 
     ClearBackground(GRAY);
     DrawText("Hello World!", 150, 180, 20, LIGHTGRAY);
-    
-    PPU::FormatTilemap();
+
     PPU::DrawTileMap();
 
     EndDrawing();

@@ -20,6 +20,7 @@ struct Utils{
       std::cout << std::format("{:02X}", i) << " " ;
     } endline;
   }
+  
   // Print limited vector of any type in hex
   template<typename T>
   static void print_vector_limit(const T &vec, int limit){

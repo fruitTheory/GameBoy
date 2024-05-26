@@ -28,7 +28,6 @@ vector<int> PPU::get_tile(int address){
       // Add current bits, assigning b2 as most significant << 1
       shade = current_b1 + (current_b2 << 1);
       tile.push_back(shade);
-
       ++arr_iter;
     }
   // Even Iterations, simulate 'every other'
@@ -78,7 +77,7 @@ void PPU::FormatTilemap(){
 
         for(int p = 0; p < 8; p++){ // pixels
 
-          tilemap[p_row+(8*base_iter)][p + (8*v_col)] = tile_collection[v_col][p +(8*p_row)];
+          tilemap[p_row+(8*base_iter)][p + (8*v_col)] = tile_collection[v_col][p+(8*p_row)];
         }
       }
     }
@@ -91,35 +90,46 @@ void PPU::FormatTilemap(){
 // Draw stored tilemap
 void PPU::DrawTileMap(){
 
-  int p_value{100}; // Pixel value/color
   int p_size = 1 * PIX_MULTIPLIER ; // Pixel size
   int p_alpha{255}; // Pixel Alpha
 
-  TILEMAP tilemap = GetTilemap();
+  for(int y = 0; y < 256; y++){
+    for(int x = 0; x < 256; x++){
 
-  for(int y = 0; y < 255; y++){
-    for(int x = 0; x < 255; x++){
-    
-    // Pixels will accept the palette value
-    switch(tilemap[y][x]){
-      case 0:
-        p_value = PPU::palette[0];
-        break;
-      case 1:
-        p_value = PPU::palette[1];
-        break;
-      case 2:
-        p_value = PPU::palette[2];
-        break;
-      case 3:
-        p_value = PPU::palette[3];
-        break;
-    }
-    Color Ci = {p_value, p_value, p_value, p_alpha};
-    DrawRectangle((x * p_size), (y * p_size), p_size, p_size, Ci);
-    
+      int mapX = (SCX + x) % 256;
+      int mapY = (SCY + y) % 256;
+      int p_value = GetTilemapPixel(mapX, mapY);
+
+      Color Ci = {p_value, p_value, p_value, p_alpha};
+      DrawRectangle((x * p_size), (y * p_size), p_size, p_size, Ci);
     }
   }
+  ++SCX; // Time to Update scroll
+}
+
+// Get pixel color value at specified position
+int PPU::GetTilemapPixel(int mapX, int mapY){
+
+  TILEMAP tilemap = GetTilemap();
+  int p_value;
+
+  // Pixels will accept the palette value
+  switch(tilemap[mapY][mapX]){
+    case 0:
+      p_value = PPU::palette[0];
+      break;
+    case 1:
+      p_value = PPU::palette[1];
+      break;
+    case 2:
+      p_value = PPU::palette[2];
+      break;
+    case 3:
+      p_value = PPU::palette[3];
+      break;
+  }
+
+  return p_value;
 }
 
 // Utility way to get specific value from ROM

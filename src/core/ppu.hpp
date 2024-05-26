@@ -26,5 +26,9 @@ class PPU {
   static void StoreTilemap(const TILEMAP &map){ TileMap = map; }
   static const TILEMAP &GetTilemap(){ return TileMap; }
   static void DrawTileMap();
+  static int GetTilemapPixel(int mapX, int mapY);
+
+  inline static int SCX; 
+  inline static int SCY;
 
 };
